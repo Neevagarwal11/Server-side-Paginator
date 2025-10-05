@@ -8,7 +8,7 @@ import Pagination from './pagination/Pagination';
 
 
     return (
-      <div>    
+      <div className='w-full h-screen p-0 m-0'>    
         <Pagination />
       </div>
     );
