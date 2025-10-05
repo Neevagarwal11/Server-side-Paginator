@@ -6,10 +6,7 @@ import "primereact/resources/primereact.min.css";
 import "./datatable.css";
 import 'primeicons/primeicons.css';
 import { Paginator } from "primereact/paginator";
-import {
-  InputSwitch,
-  type InputSwitchChangeEvent,
-} from "primereact/inputswitch";
+
 import { useRef, useState, type SetStateAction } from "react";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { Button } from "primereact/button";
@@ -25,14 +22,8 @@ function Datatable({ data, page, totalPages, setPage }: DatatableProps) {
   const [jumpPage, setJumpPage] = useState<string>("");
 
   const rowClassName = () => "custom-row";
-  const [rowClick, setRowClick] = useState<boolean>(true);
-  type DataItem = {
-    title: string;
-    place_of_origin: string;
-    artist_display: string;
-    date_start: string | number;
-    date_end: string | number;
-  };
+  const [rowClick] = useState<boolean>(true);
+  
 
 
 
@@ -61,7 +52,6 @@ const [selectedProducts, setSelectedProducts] = useState<any[]>([]);
   let allRows: any[] = [];
   let currentPage = 1;
   let rowsNeeded = selectCount;
-  const pageSize = 12;
 
   while (rowsNeeded > 0 && currentPage <= totalPages) {
     let pageData =
